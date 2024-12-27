@@ -13,9 +13,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-
-    - name: Checkout feature branch
-      run: git checkout feature
       
     - name: Create a new file
       run: |
