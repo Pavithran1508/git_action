@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         # Authenticate using PAT instead of GITHUB_TOKEN
-        token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        token: ${{ghp_h8vpkh5dbZcTgLOiyaZFpKdnR0Njva0iYmE}}
         ref: feature
 
     - name: Create a new file
@@ -35,4 +35,4 @@ jobs:
     - name: Push changes to feature branch
       run: git push origin feature
       env:
-        PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }} # Use PAT for authentication
+        PERSONAL_ACCESS_TOKEN: ${{ghp_h8vpkh5dbZcTgLOiyaZFpKdnR0Njva0iYmE}} # Use PAT for authentication
