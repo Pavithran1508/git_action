@@ -1,0 +1,37 @@
+name: Push Changes to Feature Branch
+
+on:
+  push:
+    branches:
+      - feature # Trigger on push to the feature branch
+
+jobs:
+  commit-file:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        # Authenticate using PAT instead of GITHUB_TOKEN
+        token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        ref: feature
+
+    - name: Create a new file
+      run: |
+        echo "This file is added using GitHub Actions" > new-file.txt
+
+    - name: Configure Git
+      run: |
+        git config user.name "Pavithran1508"
+        git config user.email "pavithrang4@gmail.com"
+
+    - name: Commit the new file
+      run: |
+        git add new-file.txt
+        git commit -m "Add new-file.txt via GitHub Actions"
+
+    - name: Push changes to feature branch
+      run: git push origin feature
+      env:
+        PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }} # Use PAT for authentication
