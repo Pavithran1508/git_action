@@ -29,5 +29,5 @@ jobs:
         git commit -m "Add new-file.txt via GitHub Actions"
 
     - name: Push changes to feature branch
-      run: git push origin feature
+      run: git push origin main
     
