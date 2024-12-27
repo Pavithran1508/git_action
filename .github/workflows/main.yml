@@ -13,11 +13,7 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-      with:
-        # Authenticate using PAT instead of GITHUB_TOKEN
-        token: ${{ghp_h8vpkh5dbZcTgLOiyaZFpKdnR0Njva0iYmE}}
-        ref: feature
-
+      
     - name: Create a new file
       run: |
         echo "This file is added using GitHub Actions" > new-file.txt
@@ -34,5 +30,4 @@ jobs:
 
     - name: Push changes to feature branch
       run: git push origin feature
-      env:
-        PERSONAL_ACCESS_TOKEN: ${{ghp_h8vpkh5dbZcTgLOiyaZFpKdnR0Njva0iYmE}} # Use PAT for authentication
+    
